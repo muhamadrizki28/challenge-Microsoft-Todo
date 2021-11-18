@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\User; //baru untuk model
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB; //baru
+use Illuminate\Support\Facades\Hash; //baru
+use Illuminate\Support\Str; //baru
 
 class UsersTableSeeder extends Seeder
 {
@@ -18,19 +21,21 @@ class UsersTableSeeder extends Seeder
          [
              'name' => 'Rizki',
              'email' => 'rizki@gmail.com',
-             'password' => Hash::make('contoh123'),
+             'password' => bcrypt('123456'),
              'created_at' => new \DateTime,
              'updated_at' => null,
          ],
          [
              'name' => 'Joy',
              'email' => 'joy@gmail.com',
-             'password' => Hash::make('cjoy123'),
+             'password' => bcrypt('123456'),
              'created_at' => new \DateTime,
              'updated_at' => null,
          ],
          
          ];
+         
+
 
          \DB::table('users')->insert($users);
 
